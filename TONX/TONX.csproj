@@ -15,6 +15,7 @@
 		<NoWarn>MSB3246, CA2211, IDE0044, IDE0028, IDE0300</NoWarn>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Platforms>Windows;Android</Platforms>
+		<AssemblyName>TONX_$(Platform)</AssemblyName>
 	</PropertyGroup>
     <PropertyGroup Condition="'$(Platform)' == 'Windows'">
     <DefineConstants>Windows</DefineConstants>
@@ -38,8 +39,9 @@
 		<PackageReference Include="YamlDotNet" Version="16.3.0" />
 	</ItemGroup>
 
-	<Target Name="Copy" AfterTargets="Build" Condition="'$(AmongUs)' != ''">
+	<Target Name="Copy" AfterTargets="Build" Condition="'$(AmongUs)' != '' and '$(Platform)' == 'Windows'">
 		<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(AmongUs)/BepInEx/plugins/" Condition="'$(Configuration)' == 'Debug'" />
+		<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(AmongUs)/BepInEx/plugins/" Condition="'$(Configuration)' == 'Release'" />
 	</Target>
 
     <Target Name="UpdateMD5" AfterTargets="Build" Condition="'$(EnableMD5Update)' == 'true'">
