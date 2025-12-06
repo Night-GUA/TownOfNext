@@ -106,7 +106,7 @@ public sealed class Recruit : RoleBase
         {
             var (killer, target) = info.AttemptTuple;
             target.RpcMurderPlayerV2(killer);
-            MyState.DeathReason = CustomDeathReason.Sacrifice;
+            // MyState.DeathReason = CustomDeathReason.Sacrifice;
             PlayerState.GetByPlayerId(killer.PlayerId).DeathReason = CustomDeathReason.Backlash;
             Logger.Info($"新兵 {target.GetRealName()} 扔出手榴弹，与凶手 {killer.GetRealName()} 同归于尽", "Recruit.OnCheckMurderAsTarget");
         }
