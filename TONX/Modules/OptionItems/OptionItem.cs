@@ -139,7 +139,7 @@ namespace TONX
 #if DEBUG
                 IdDuplicated = true;
 #endif
-                Logger.Error($"ID:{id}が重複しています", "OptionItem");
+                Logger.Error($"ID:{id} 重复", "OptionItem");
             }
         }
 

@@ -628,6 +628,7 @@ public enum CustomRoles
     Observer,
     DoveOfPeace,
     Collator,
+    Recruit,
     //Neutral
     Arsonist,
     Jester,
