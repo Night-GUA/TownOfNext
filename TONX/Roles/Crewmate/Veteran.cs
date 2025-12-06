@@ -106,6 +106,7 @@ public sealed class Veteran : RoleBase
         {
             var (killer, target) = info.AttemptTuple;
             target.RpcMurderPlayerV2(killer);
+            PlayerState.GetByPlayerId(killer.PlayerId).DeathReason = CustomDeathReason.Backlash;
             Logger.Info($"{target.GetRealName()} 老兵反弹击杀：{killer.GetRealName()}", "Veteran.OnCheckMurderAsTarget");
             return false;
         }
